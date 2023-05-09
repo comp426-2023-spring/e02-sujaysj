@@ -119,4 +119,17 @@ addEventListener("DOMContentLoaded", (event) => {
     function resetgame(event) {
         window.location.reload();
     }
+
+    var rulesshown = false;
+    document.getElementById('rules').addEventListener('click', showrules)
+
+    function showrules() {
+        if (rulesshown) {
+            document.getElementById('rulestext').style.display = 'none';
+            rulesshown = false;
+        } else {
+            document.getElementById('rulestext').style.display = 'block';
+            rulesshown = true;
+        }
+    }
 });

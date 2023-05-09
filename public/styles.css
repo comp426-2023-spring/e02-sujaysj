@@ -39,6 +39,12 @@ p {
     color:black
 }
 
+#rulestext {
+    background-color:aqua;
+    width:fit-content;
+    padding: 20px
+}
+
 .button {
     background-color:cornflowerblue;
     border: none;
