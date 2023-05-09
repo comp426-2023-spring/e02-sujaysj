@@ -19,13 +19,16 @@ for (let i = 0; i < output_types.length; i++) {
     output_types[i].addEventListener("change", function(event) {
         opponent = event.target.value;
         document.getElementById('Game_Selection').style.display = 'block';
+        clearRadio('throws');
+        clearRadio('gameselect');
 
         if (opponent == 'random') {
-            clearRadio('throws');
             document.getElementById('Throw_Selection').style.display = 'none';
+            document.getElementById('Submit_Selection').style.display = 'block';
         }
         if (opponent == 'opponent') {
             document.getElementById('Throw_Selection').style.display = 'block';
+            document.getElementById('Submit_Selection').style.display = 'none';
         }
     })
 }
@@ -35,6 +38,9 @@ var gameselect = document.getElementsByName('gameselect');
 for (let j = 0; j < gameselect.length; j++) {
     gameselect[j].addEventListener("change", function(event) {
         game = event.target.value;
+        clearRadio('throws');
+        document.getElementById('Submit_Selection').style.display = 'none';
+
         if (game == 'rps') {
             document.getElementById('lizard').style.display = 'none';
             document.getElementById('spock').style.display = 'none';
