@@ -5,6 +5,8 @@ h1 {
 }
 
 p {
+    color:blue;
+    font-size:large;
 }
 
 #Game_Selection {
@@ -25,4 +27,27 @@ p {
 
 #Submit_Selection {
     display: none;
+}
+
+.ResultsWindow {
+    background-color:rgb(127, 255, 200);
+    width:fit-content;
+    padding: 20px
+}
+
+.Results {
+    color:black
+}
+
+.button {
+    background-color:cornflowerblue;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
