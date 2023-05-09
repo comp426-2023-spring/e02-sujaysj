@@ -6,3 +6,23 @@ h1 {
 
 p {
 }
+
+#Game_Selection {
+    display: none;
+}
+
+#Throw_Selection {
+    display: none;
+}
+
+#Game_Results {
+    display: none;
+}
+
+#Random_Results {
+    display: none;
+}
+
+#Submit_Selection {
+    display: none;
+}
