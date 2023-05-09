@@ -68,14 +68,21 @@ async function submitgame(event) {
     const endpoint = "app/";
     const url = document.baseURI + endpoint + game + '/';
 
+    if (opponent == 'opponent') {
+        url = url + 'play/' + shot + '/';
+    }
+    const response = await fetch(url);
+    const data = await response.json();
+
     if (opponent == 'random') {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
+        document.getElementById('Random_Results').style.display = 'block';
+        document.getElementById('random').innerHTML += data.player;
     }
     if (opponent == 'opponent') {
-        url = url + 'play/' + shot
+        document.getElementById('Game_Results').style.display = 'block';
+        document.getElementById('player').innerHTML += data.player;
+        document.getElementById('opponent').innerHTML += data.opponent;
+        document.getElementById('result').innerHTML += data.result;
     }
-
 }
 
