@@ -20,14 +20,14 @@ var output_types = document.getElementsByName('outputtype');
 for (let i = 0; i < output_types.length; i++) {
     output_types[i].addEventListener("change", function(event) {
         opponent = event.target.value;
-        document.getElementById('Game Selection').style.display = 'block';
+        document.getElementById('Game_Selection').style.display = 'block';
 
         if (opponent = 'random') {
             clearRadio('throws');
-            document.getElementById('Throw Selection').style.display = 'none';
+            document.getElementById('Throw_Selection').style.display = 'none';
         }
         if (opponent = 'opponent') {
-            document.getElementById('Throw Selection').style.display = 'block';
+            document.getElementById('Throw_Selection').style.display = 'block';
         }
     })
 }
@@ -47,4 +47,3 @@ for (let j = 0; j < gameselect.length; j++) {
         }
     })
 }
-
