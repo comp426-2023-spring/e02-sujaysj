@@ -15,23 +15,35 @@ function clearRadio(name) {
 var opponent;
 var game;
 
+// chooses what elements to display based on opponent selection
 var output_types = document.getElementsByName('outputtype');
 for (let i = 0; i < output_types.length; i++) {
     output_types[i].addEventListener("change", function(event) {
         opponent = event.target.value;
         document.getElementById('Game Selection').style.display = 'block';
+
+        if (opponent = 'random') {
+            clearRadio('throws');
+            document.getElementById('Throw Selection').style.display = 'none';
+        }
+        if (opponent = 'opponent') {
+            document.getElementById('Throw Selection').style.display = 'block';
+        }
     })
 }
 
+// chooses what throws to display based on game selection
 var gameselect = document.getElementsByName('gameselect');
-for (let i = 0; i < gameselect.length; i++) {
-    gameselect[i].addEventListener("change", function(event) {
+for (let j = 0; j < gameselect.length; j++) {
+    gameselect[j].addEventListener("change", function(event) {
         game = event.target.value;
-        if (game = 'rps' && ) {
-            
+        if (game = 'rps') {
+            document.getElementById('lizard').style.display = 'none';
+            document.getElementById('spock').style.display = 'none';
         }
         if (game = 'rpsls') {
-
+            document.getElementById('lizard').style.display = 'block';
+            document.getElementById('spock').style.display = 'block';
         }
     })
 }
