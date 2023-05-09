@@ -46,13 +46,30 @@ for (let j = 0; j < gameselect.length; j++) {
     })
 }
 
+var shot;
 
-document.getElementById('submit').addEventListener('change', submitrps)
+var throwselect = document.getElementsByName('throws');
+for (let k = 0; k < gameselect.length; k++) {
+    gameselect[j].addEventListener("change", function(event) {
+        shot = event.target.value;
+        document.getElementById('Submit_Selection').style.display = 'block';
+    })
+}
 
-async function submitrps(event) {
+document.getElementById('submit').addEventListener('change', submitgame)
+
+async function submitgame(event) {
     const endpoint = "app/";
-    const url = document.baseURI+endpoint;
+    const url = document.baseURI + endpoint + game + '/';
 
-    if (opponent = 'random')
+    if (opponent == 'random') {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+    if (opponent == 'opponent') {
+        url = url + 'play/' + shot
+    }
 
 }
+
