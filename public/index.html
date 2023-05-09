@@ -5,6 +5,46 @@
     </head>
     <body>
 
+        <div id="Game Selection">
+            <p>Select the game you'd like to play:</p>
+            <label for="rps">Rock Paper Scissors</label><br>
+            <input type="radio" id="rps" name="gameselect">
+            <label for="rpsls">Rock Paper Scissors Lizard Spock</label><br>
+            <input type="radio" id="rpsls" name="gameselect">
+        </div>
+
+        <div id="Opponent">
+            <input type="checkbox" id="opponent" name="opponent">
+            <label for="opponent">Select if you would like to simulate a game</label><br>
+        </div>
+
+        <div id="Throw Selection">
+            <p>Select your throw:</p>
+            <label for="rock">Rock</label><br>
+            <input type="radio" id="rock" name="throws" value="rock">
+            <label for="paper">Paper</label><br>
+            <input type="radio" id="paper" name="throws" value="paper">
+            <label for="scissors">Scissors</label><br>
+            <input type="radio" id="scissors" name="throws" value="scissors">
+            <label for="lizard">Lizard</label><br>
+            <input type="radio" id="lizard" name="throws" value="lizard">
+            <label for="spock">Spock</label><br>
+            <input type="radio" id="spock" name="throws" value="spock">
+        </div>
+
+        <div id="Submit">
+            <button type="button" id="submit">Submit</button>
+        </div>
+
+        <div id="Game Results">
+            <p id="player"></p>
+            <p id="opponent"></p>
+            <p id="result"></p>
+        </div>
+
+        <div id="Random Results">
+            <p id="random"></p>
+        </div>
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
 
