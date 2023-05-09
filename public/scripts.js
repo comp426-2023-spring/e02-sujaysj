@@ -10,7 +10,7 @@ function clearRadio(name) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+addEventListener("DOMContentLoaded", (event) => {
     var opponent;
     var game;
 
@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('Game_Selection').style.display = 'block';
             clearRadio('throws');
             clearRadio('gameselect');
+            
+            document.getElementById('lizard').style.display = 'none';
+            document.getElementById('spock').style.display = 'none';
+            document.getElementById('lizardlabel').style.display = 'none';
+            document.getElementById('spocklabel').style.display = 'none';
 
             if (opponent == 'random') {
                 document.getElementById('Throw_Selection').style.display = 'none';
@@ -40,6 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
         gameselect[j].addEventListener("change", function(event) {
             game = event.target.value;
             clearRadio('throws');
+            document.getElementById('Submit_Selection').style.display = 'none';
+
+            document.getElementById('lizard').style.display = 'none';
+            document.getElementById('spock').style.display = 'none';
+            document.getElementById('lizardlabel').style.display = 'none';
+            document.getElementById('spocklabel').style.display = 'none';
+
             if (opponent == 'random') {
                 document.getElementById('Submit_Selection').style.display = 'block';
             }
@@ -47,10 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (game == 'rps') {
                 document.getElementById('lizard').style.display = 'none';
                 document.getElementById('spock').style.display = 'none';
+                document.getElementById('lizardlabel').style.display = 'none';
+                document.getElementById('spocklabel').style.display = 'none';
             }
             if (game == 'rpsls') {
-                document.getElementById('lizard').style.display = 'block';
-                document.getElementById('spock').style.display = 'block';
+                document.getElementById('lizard').style.display = 'inline';
+                document.getElementById('spock').style.display = 'inline';
+                document.getElementById('lizardlabel').style.display = 'inline';
+                document.getElementById('spocklabel').style.display = 'inline';
             }
         })
     }
@@ -58,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var shot;
 
     var throwselect = document.getElementsByName('throws');
-    for (let k = 0; k < gameselect.length; k++) {
-        gameselect[k].addEventListener("change", function(event) {
+    for (let k = 0; k < throwselect.length; k++) {
+        throwselect[k].addEventListener("change", function(event) {
             shot = event.target.value;
             document.getElementById('Submit_Selection').style.display = 'block';
         })
@@ -67,10 +83,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('submit').addEventListener('click', submitgame)
 
+    function showRandom(data) {
+        document.getElementById('randomresult').innerHTML += data.player;
+        document.getElementById('Random_Results').style.display = 'block';
+    }
+
+    function showGame(data) {
+        console.log(data);
+        document.getElementById('playerresult').innerHTML += data.player;
+        document.getElementById('opponentresult').innerHTML += data.opponent;
+        document.getElementById('totalresult').innerHTML += data.result;
+        document.getElementById('Game_Results').style.display = 'block';
+    }
+
     async function submitgame(event) {
-        console.log("submitpressed");
         const endpoint = "app/";
-        const url = document.baseURI + endpoint + game + '/';
+        var url = document.baseURI + endpoint + game + '/';
 
         if (opponent == 'opponent') {
             url = url + 'play/' + shot + '/';
@@ -79,18 +107,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const data = await response.json();
 
         if (opponent == 'random') {
-            document.getElementById('Random_Results').style.display = 'block';
-            document.getElementById('random').innerHTML += data.player;
+            showRandom(data);
         }
         if (opponent == 'opponent') {
-            document.getElementById('Game_Results').style.display = 'block';
-            document.getElementById('player').innerHTML += data.player;
-            document.getElementById('opponent').innerHTML += data.opponent;
-            document.getElementById('result').innerHTML += data.result;
+            showGame(data);
         }
     }
 
-    document.getElementById('reset').addEventListener('change', resetgame)
+    document.getElementById('reset').addEventListener('click', resetgame)
 
     function resetgame(event) {
         window.location.reload();
