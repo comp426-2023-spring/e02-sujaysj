@@ -65,9 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 
-    document.getElementById('submit').addEventListener('change', submitgame)
+    document.getElementById('submit').addEventListener('click', submitgame)
 
     async function submitgame(event) {
+        console.log("submitpressed");
         const endpoint = "app/";
         const url = document.baseURI + endpoint + game + '/';
 
