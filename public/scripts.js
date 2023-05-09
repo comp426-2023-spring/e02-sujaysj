@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (opponent == 'random') {
                 document.getElementById('Throw_Selection').style.display = 'none';
-                document.getElementById('Submit_Selection').style.display = 'block';
+                document.getElementById('Submit_Selection').style.display = 'none';
             }
             if (opponent == 'opponent') {
                 document.getElementById('Throw_Selection').style.display = 'block';
@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         gameselect[j].addEventListener("change", function(event) {
             game = event.target.value;
             clearRadio('throws');
+            if (opponent == 'random') {
+                document.getElementById('Submit_Selection').style.display = 'block';
+            }
 
             if (game == 'rps') {
                 document.getElementById('lizard').style.display = 'none';
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var throwselect = document.getElementsByName('throws');
     for (let k = 0; k < gameselect.length; k++) {
-        gameselect[j].addEventListener("change", function(event) {
+        gameselect[k].addEventListener("change", function(event) {
             shot = event.target.value;
             document.getElementById('Submit_Selection').style.display = 'block';
         })
