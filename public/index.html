@@ -5,17 +5,20 @@
     </head>
     <body>
 
+        <div id="Opponent">
+            <p>What would you like to do?</p>
+            <label for="rps">Produce a random output</label><br>
+            <input type="radio" id="random" name="gametype" value="random">
+            <label for="rpsls">Play a game</label><br>
+            <input type="radio" id="opponent" name="gametype" value="opponent">
+        </div>
+
         <div id="Game Selection">
             <p>Select the game you'd like to play:</p>
             <label for="rps">Rock Paper Scissors</label><br>
             <input type="radio" id="rps" name="gameselect" value="rps">
             <label for="rpsls">Rock Paper Scissors Lizard Spock</label><br>
             <input type="radio" id="rpsls" name="gameselect" value="rpsls">
-        </div>
-
-        <div id="Opponent">
-            <input type="checkbox" id="opponent" name="opponent">
-            <label for="opponent">Select if you would like to simulate a game</label><br>
         </div>
 
         <div id="Throw Selection">
