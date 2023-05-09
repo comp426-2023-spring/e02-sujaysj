@@ -86,3 +86,8 @@ async function submitgame(event) {
     }
 }
 
+document.getElementById('reset').addEventListener('change', resetgame)
+
+function resetgame(event) {
+    window.location.reload();
+}
